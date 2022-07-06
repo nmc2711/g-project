@@ -9,7 +9,7 @@ type FontType = {
 
 const FONT: FontType = {
   폰트이름: "GmarketSans",
-  폰트경로: "../../public/fonts/",
+  폰트경로: "/static/fonts/",
   폰트굵기: [[300, "Light"], [500, "Medium"], [700, "Bold"]],
 };
 
@@ -19,15 +19,22 @@ const createFont = (fontData: FontType) => {
       @font-face {
         font-family: ${fontData.폰트이름};
         font-weight: ${weight};
-        src: url('${fontData.폰트경로}${fontData.폰트이름}${weightStr}.ttf') format('ttf'),
-          url('${fontData.폰트경로}${fontData.폰트이름}${weightStr}.otf') format('otf'),
+        src: url('/asset/fonts/${fontData.폰트이름}${weightStr}.ttf') format('ttf'),
+          url('/asset/fonts/${fontData.폰트이름}${weightStr}.otf') format('otf'),
       }
     `;
   })
 };
 
+console.log(createFont(FONT));
+
 export default createGlobalStyle`
   ${reset};
 
   ${createFont(FONT)}
+
+  h1 {
+    font-family: "GmarketSans";
+    font-size: 42px;
+  };
 `;

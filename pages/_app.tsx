@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { ThemeProvider } from 'styled-components';
-import GlobalStyled from '../common/globalStyled';
+import GlobalStyled from '../common/globalStyled/styled';
 
 function App({ Component, pageProps }) {
   const theme = {};
