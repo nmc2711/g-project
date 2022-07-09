@@ -1,19 +1,28 @@
 {
+  "extends": "../tsconfig.base.json",
   "compilerOptions": {
-    "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": false,
-    "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
-    "esModuleInterop": true,
     "module": "esnext",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve"
-  },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "sourceMap": true,
+
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["./*"],
+      "web~/*": ["containers/web/*"],
+      "mobile~/*": ["containers/mobile/*"],
+      "webview~/*": ["containers/webview/*"]
+    },
+    "typeRoots": [
+      "../node_modules/@types",
+      "@types"
+    ]
+  }
 }
